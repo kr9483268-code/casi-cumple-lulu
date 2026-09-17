@@ -1,2 +1,283 @@
 # casi-cumple-lulu
 Una pequeña sorpresa para mi Lulu ♡
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Lulu ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    background:#17151B;
+    color:#F8F2F5;
+    font-family:'Montserrat', sans-serif;
+    overflow:hidden;
+}
+
+.screen{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    position:relative;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#F8F2F5;
+    border-radius:50%;
+    opacity:.5;
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;transform:scale(.8)}
+    50%{opacity:1;transform:scale(1.4)}
+}
+
+.content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    max-width:650px;
+    animation:fadeIn 1.8s ease;
+}
+
+.small{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#CDBDC8;
+    margin-bottom:25px;
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(55px,12vw,100px);
+    font-weight:500;
+    line-height:.9;
+    margin-bottom:25px;
+}
+
+.subtitle{
+    font-size:14px;
+    font-weight:300;
+    color:#CDBDC8;
+    letter-spacing:1px;
+    margin-bottom:40px;
+}
+
+button{
+    border:1px solid #CDBDC8;
+    background:transparent;
+    color:#F8F2F5;
+    padding:14px 28px;
+    border-radius:30px;
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+button:hover{
+    background:#F8F2F5;
+    color:#17151B;
+}
+
+.heart{
+    color:#CDBDC8;
+    font-size:18px;
+}
+
+.letter{
+    display:none;
+    max-width:620px;
+    text-align:center;
+    animation:fadeIn 1.5s ease;
+}
+
+.letter h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    font-weight:500;
+    margin-bottom:30px;
+}
+
+.letter p{
+    font-size:15px;
+    line-height:2;
+    font-weight:300;
+    color:#E8DDE3;
+    margin-bottom:18px;
+}
+
+.final{
+    margin-top:35px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    color:#F8F2F5;
+}
+
+.date{
+    margin-top:18px;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#8F7E89;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:600px){
+
+    .screen{
+        padding:25px;
+    }
+
+    h1{
+        font-size:65px;
+    }
+
+    .letter h2{
+        font-size:40px;
+    }
+
+    .letter p{
+        font-size:14px;
+        line-height:1.9;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<section class="screen" id="intro">
+
+    <div class="content">
+
+        <div class="small">
+            una pequeña cuenta regresiva
+        </div>
+
+        <h1>
+            Faltan<br>
+            40 días<span class="heart"> ♡</span>
+        </h1>
+
+        <div class="subtitle">
+            para celebrar a alguien muy especial
+        </div>
+
+        <button onclick="openLetter()">
+            Abrir ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+<section class="screen">
+
+    <div class="letter" id="letter">
+
+        <h2>Hola, Lulu ♡</h2>
+
+        <p>
+            Sé que todavía faltan varios días para tu cumpleaños,
+            pero no quería esperar hasta el 26 de octubre
+            para empezar a celebrarte.
+        </p>
+
+        <p>
+            Así que desde hoy empieza una pequeña cuenta regresiva.
+        </p>
+
+        <p>
+            No todos los días vas a recibir lo mismo.
+            Algunos días habrá cartas, otros recuerdos,
+            canciones, juegos, fotos…
+            y algunas cositas que todavía no te puedo contar.
+        </p>
+
+        <p>
+            Solo espero que cada una de ellas
+            te saque aunque sea una pequeña sonrisa.
+        </p>
+
+        <div class="final">
+            Nos vemos mañana, Lulu ♡
+        </div>
+
+        <div class="date">
+            DÍA 1 · 16.09.2026
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<70;i++){
+
+    const star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = Math.random()*100 + "%";
+
+    star.style.animationDelay = Math.random()*3 + "s";
+
+    stars.appendChild(star);
+}
+
+
+function openLetter(){
+
+    document.getElementById("intro").style.display="none";
+
+    document.getElementById("letter").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
