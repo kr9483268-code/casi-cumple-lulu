@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casi es tu día, Lulu ♡</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 20% 20%, #4a3b52 0%, transparent 25%),
+        radial-gradient(circle at 80% 80%, #382f43 0%, transparent 25%),
+        #17151b;
+      color: #f8f2f5;
+      font-family: Georgia, "Times New Roman", serif;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      color: #d8c6d2;
+      opacity: 0.55;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    .star:nth-child(1) { top: 12%; left: 15%; }
+    .star:nth-child(2) { top: 24%; right: 18%; animation-delay: 1s; }
+    .star:nth-child(3) { bottom: 20%; left: 23%; animation-delay: 2s; }
+    .star:nth-child(4) { bottom: 13%; right: 15%; animation-delay: .5s; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: .25; transform: scale(.8); }
+      50% { opacity: .9; transform: scale(1.2); }
+    }
+
+    .card {
+      width: min(90%, 600px);
+      text-align: center;
+      padding: 55px 30px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 28px;
+      background: rgba(255,255,255,.055);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      position: relative;
+      z-index: 2;
+    }
+
+    .small {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      color: #cdbdc8;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 8vw, 66px);
+      font-weight: normal;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .date {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #cdbdc8;
+      margin-bottom: 28px;
+    }
+
+    .message {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #eee6eb;
+      max-width: 450px;
+      margin: 0 auto 32px;
+    }
+
+    button {
+      border: 1px solid rgba(255,255,255,.25);
+      background: #eee4ea;
+      color: #29222b;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      background: white;
+    }
+
+    #secret {
+      display: none;
+      margin-top: 25px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #e9dce4;
+    }
+
+    #secret.show {
+      display: block;
+      animation: appear .8s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stars">
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+  </div>
+
+  <main class="card">
+
+    <div class="small">una pequeña sorpresa para vos</div>
+
+    <h1>Casi es tu día, Lulu ♡</h1>
+
+    <div class="date">26 · 10 · 2026</div>
+
+    <p class="message">
+      Antes de que llegue tu cumpleaños,
+      quería preparar algo especialmente para vos.
+    </p>
+
+    <button onclick="abrirSorpresa()">
+      Abrir mi sorpresa ♡
+    </button>
+
+    <p id="secret">
+      Y esto apenas comienza...
+      <br><br>
+      Hay muchas cosas que todavía quiero decirte. ✦
+    </p>
+
+  </main>
+
+  <script>
+    function abrirSorpresa() {
+      document.getElementById("secret").classList.add("show");
+    }
+  </script>
+
+</body>
+</html>
